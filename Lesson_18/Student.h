@@ -36,6 +36,7 @@ class Student
 public:
 	Student();
 	Student(string, date, string, int[], int);
+	Student(const Student&);
 	~Student();
 
 	void print_info();
@@ -43,5 +44,6 @@ public:
 
 	string get_name();
 	void set_name(string _name);
+	void set_grade(unsigned int, int);
 };
 

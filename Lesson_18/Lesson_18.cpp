@@ -16,5 +16,14 @@ int main()
         grades, 5);
     s2.print_info();
 
+    Student s3(s2);
+    s3.print_info();
+
+    s2.set_grade(1, 4);
+    cout << endl << endl;
+
+    s2.print_info();
+    s3.print_info();
+
     cout << "Имя второго студента: " << s2.get_name() << endl;
 }

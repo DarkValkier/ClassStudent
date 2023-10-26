@@ -16,6 +16,13 @@ Student::Student(
 		grades[i] = _grades[i];
 	}
 }
+Student::Student(const Student& _source) : name(_source.name), birthday(_source.birthday),
+group(_source.group), grades_count(_source.grades_count) {
+	grades = new int[_source.grades_count];
+	for (int i = 0; i < _source.grades_count; i++) {
+		grades[i] = _source.grades[i];
+	}
+}
 
 Student::~Student() {
 	delete[] grades;
@@ -25,6 +32,10 @@ void Student::print_info() {
 	cout << "Студент " << name << endl;
 	cout << "День рождения: " << birthday.as_string() << endl;
 	cout << "Группа: " << group << endl;
+	cout << "Оценки: ";
+	for (int i = 0; i < grades_count; i++)
+		cout << grades[i] << " ";
+	cout << endl;
 	cout << "Ср. балл: " << round(get_gpa() * 10) / 10 << endl;
 }
 
@@ -44,4 +55,8 @@ string Student::get_name() {
 
 void Student::set_name(string _name) {
 	name = _name;
+}
+
+void Student::set_grade(unsigned int _index, int _value) {
+	grades[_index] = _value;
 }
